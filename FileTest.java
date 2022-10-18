@@ -39,6 +39,6 @@ public class FileTest {
 		Files.newDirectoryStream(filePath).forEach(System.out::println);
 		System.out.println("*********Files with extension***********");
 		Files.newDirectoryStream(filePath, pathh -> path.toFile().isFile() &&
-		 path.toString().startsWith("s")).forEach(System.out::println);
+		 path.toString().startsWith("")).forEach(System.out::println);
 	}
 }

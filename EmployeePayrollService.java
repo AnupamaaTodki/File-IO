@@ -1,5 +1,7 @@
 package com.javafileio;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +19,10 @@ public class EmployeePayrollService {
 		double salary = scanner.nextDouble();
 		empList.add(new EmployeePayroll(id, name, salary)) ;
 	}
-	public void printData() {
+	public void printData() throws IOException {
+		FileWriter writter = new FileWriter("C:\\Users\\dell\\fileCheck");
+		writter.write(empList.toString());
+		writter.close();
 		System.out.println("Employee Data");
 		System.out.println(empList);
 	}
@@ -25,6 +30,11 @@ public class EmployeePayrollService {
 	public static void main(String[] args) {
 		EmployeePayrollService emp = new EmployeePayrollService();
 		emp.readEmployeeData();
-		emp.printData();
+		try {
+			emp.printData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
